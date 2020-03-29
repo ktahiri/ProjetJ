@@ -1,6 +1,7 @@
 package fr.um3.projet;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Arazi1 {
 	
@@ -16,20 +17,25 @@ public class Arazi1 {
 		String m2 = new String ("");
 		
 		int n=0;
+		
+		ArrayList <int> tab = new ArrayList <int>();
+		
+		
 		while ( (n<taille) && (l>=0)) {
-			int z =0;
+			
+			
 			Random rd = new Random();
 			if (rd.nextBoolean()) {
 				int nbreA = n + (int)(Math.random() * ((taille-1 - n) + 1));
 				m2 = m2 + message.charAt(nbreA);
 				l-=1;
-				z=n+1;
+				
 				
 			}
 			n+=1;
-			if (n<1) {
+			if (n<taille) {
 				if (l>=0) {
-					n=z;
+					n=0;
 				}
 			}
 		}
