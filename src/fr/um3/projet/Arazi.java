@@ -7,10 +7,10 @@ public class Arazi {
 		// TODO Auto-generated method stub
 		
 		
-		String message = new String ("le message est celui ci");
+		String message = ("le message est celui ci");
 		Arazi1 Arazi1=new Arazi1();
-		Arazi1.modifier(message);
-		System.out.println(message);
+		String a=Arazi1.modifier(message);
+		System.out.println(a);
 		
 		
 	}

@@ -23,7 +23,7 @@ public class Arazi1 {
 				int nbreA = n + (int)(Math.random() * ((taille-1 - n) + 1));
 				m2 = m2 + message.charAt(nbreA);
 				l-=1;
-				z=n;
+				z=n+1;
 				
 			}
 			n+=1;
