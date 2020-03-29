@@ -18,7 +18,7 @@ public class Arazi1 {
 		
 		int n=0;
 		
-		ArrayList <int> tab = new ArrayList <int>();
+		ArrayList<Integer> tab = new ArrayList<Integer>();
 		
 		
 		while ( (n<taille) && (l>=0)) {
