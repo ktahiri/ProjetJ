@@ -9,7 +9,7 @@ public class Client {
 		
 		try {
 			InetAddress add= InetAddress.getLocalHost();
-			Socket SocketClient = new Socket("192.168.1.101",49874);
+			Socket SocketClient = new Socket("192.168.1.101",49930);
 			String id="Client:  "+add;
 			
 			PrintWriter Envoie=new PrintWriter(SocketClient.getOutputStream());
