@@ -8,8 +8,9 @@ public class Arazi {
 		
 		
 		String message = "le message est celui ci";
+		String but = "message";
 		Arazi1 Arazi1=new Arazi1();
-		String a = Arazi1.modifier(message);
+		String a = Arazi1.modifier(message,but );
 		System.out.println(a);
 		
 		

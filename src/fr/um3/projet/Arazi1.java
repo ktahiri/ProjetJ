@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class Arazi1 {
 	
-	public String modifier (String message) {
-		String m = new String("message");
+	public String modifier (String message, String but) {
+
 		
-		if (message.contains(m)) {
-			message = message.replaceAll(m, "");	
+		if (message.contains(but)) {
+			message = message.replaceAll(but, "");	
 		}
 		int taille = message.length();
 		double l = (int) taille*0.30;
