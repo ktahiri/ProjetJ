@@ -21,11 +21,11 @@ public class Serveur extends Thread {
 			SocketServeur.setSoTimeout(60000);//Ferme le Socket au bout d'une minute si aucun client ne s'y connecte
 			//System.out.println(sSocket.getLocalPort()); Mettre 0 comme port puis effectuer cette comande pour trouver un port fixe de libre
 			while(true) {
-				Socket Detect=SocketServeur.accept();//connecté aux clients 
-				System.out.println("Une connexion a été établie avec un client !");
+				Socket Detect=SocketServeur.accept();//connectï¿½ aux clients 
+				System.out.println("Une connexion a ï¿½tï¿½ ï¿½tablie avec un client !");
 				
-				new Jeu(Detect).start();
-				//Jeu jeu=new Jeu(Detect); jeu.setsocket(Detect);
+				// new Jeu(Detect).start();
+				Jeu jeu=new Jeu(Detect); jeu.setsocket(Detect);
 			}
 		
 		}catch(SocketTimeoutException e){System.err.println("Aucun client ne sait connecter dans le temps imparti");}
@@ -46,7 +46,7 @@ public class Serveur extends Thread {
 		public void setsocket(Socket socket) {this.socket=socket;}
 		
 		public void run() {// Coder le Jeu en lui meme
-			/*BufferedReader Reception = null;
+			BufferedReader Reception = null;
 			try {
 				Reception = new BufferedReader(new InputStreamReader(getsocket().getInputStream()));
 			} catch (IOException e) {
@@ -59,7 +59,7 @@ public class Serveur extends Thread {
 				
 				e.printStackTrace();
 			}
-		*/
+		
 		}
 	}
 	public static void main(String[] args) {

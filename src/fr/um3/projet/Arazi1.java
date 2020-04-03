@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Arazi1 {
 	
 	public String modifier (String message) {
-		String m = new String("but");
+		String m = new String("message");
 		
 		if (message.contains(m)) {
 			message = message.replaceAll(m, "");	
@@ -19,40 +19,37 @@ public class Arazi1 {
 		int n=0;
 		int z=0;
 		
-		ArrayList<Integer> tab = new ArrayList<Integer>();
+		ArrayList<Integer> ind = new ArrayList<Integer>();
 		
-		
-		while ( (n<taille) && (l>=0)) {
+		while ( (n<taille) && (l>=0) ){
 			
 			
 			Random rd = new Random();
-			System.out.println("tailles : " + taille);
-
-			System.out.println(tab);
-			System.out.println(m2);
-			System.out.println(l);
-			System.out.println("n : " + n);
-			System.out.println("z " + z);
-
-
+			
+			
 			if (rd.nextBoolean()) {
-				if (!tab.contains(n)) {
-					int nbreA = n + (int)(Math.random() * ((taille-1 - n) + 1));
-					m2 = m2 + message.charAt(nbreA);
+				if (!ind.contains(n)) {
+					ind.add(n);
 					l-=1;
-					tab.add(n);
-					z=n;
-					
+				}	
+			}
+			
+			if (n<taille && !(l>=0)) { if (l>=0) { n=z; } }
+			n+=1;
+			/*
+			 * System.out.println(ind); System.out.println("n : " + n);
+			 * System.out.println("size = " + ind.size()); System.out.println("l = " + l);
+			 * System.out.println("tailles : " + taille);
+			 */
+		}
 
-				}
+		for (int i = 0; i<taille ;i++) {
+			if (!ind.contains(i)) {
+				m2+= message.charAt(i);
 				
 			}
-			n+=1;
-
-			
-			  if (n<taille && !(l>=0)) { if (l>=0) { n=z; } }
-			 
 		}
+			 
 		return (message = m2);
 	}
 	}
