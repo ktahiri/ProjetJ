@@ -1,5 +1,9 @@
 package fr.um3.projet;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.*;
 public class Client {
@@ -9,16 +13,25 @@ public class Client {
 		
 		try {
 			InetAddress add= InetAddress.getLocalHost();
-			Socket SocketClient = new Socket("192.168.1.56",49930);
+			Socket Detect = new Socket("192.168.1.14",49874);
 			String id="Client:  "+add;
 			
-			PrintWriter Envoie=new PrintWriter(SocketClient.getOutputStream());
+			BufferedReader Reception=new BufferedReader(
+					new InputStreamReader(Detect.getInputStream()));
+			System.out.println(Reception.readLine());
+			
+			PrintWriter Envoie=new PrintWriter(
+					new BufferedWriter(
+					new OutputStreamWriter(Detect.getOutputStream())),
+					true);
+		
+			//PrintWriter Envoie=new PrintWriter(SocketClient.getOutputStream());
 			//Envoie.println(id);
-			Envoie.println("Bonjours");
+			//Envoie.println("Bonjours");
 			
-			Envoie.flush();
+			//Envoie.flush();
 			
-			SocketClient.close();
+			Detect.close();
 		
 		
 		} catch (UnknownHostException e) {
@@ -33,3 +46,4 @@ public class Client {
 	}
 
 }
+
