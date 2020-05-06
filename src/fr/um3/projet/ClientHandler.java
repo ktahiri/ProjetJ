@@ -51,7 +51,7 @@ public class ClientHandler implements Runnable {
 					 Send.println("Vous devez faire devenier le mot "+getWord());
 					 while(win==false && cycle>0) {
 						 
-						 Send.println("Il vous reste envore "+cycle+" tentatives.");
+						 Send.println("Il vous reste encore "+cycle+" tentatives.");
 						 Send.println("Veillez saisir un indice ");
 						 String request=Receive.readLine();
 						 String msg=MessageModificateur.modifier(request,getWord());
@@ -72,7 +72,7 @@ public class ClientHandler implements Runnable {
 				/*JOUEUR 2*/ 	if(getrole()==1) {
 					 Send.println("Attendez de recevoir votre premiere indice");
 					 while(win==false && cycle>0) {
-						 Send.println("Il vous reste envore "+cycle+" tentatives.");
+						 Send.println("Il vous reste encore "+cycle+" tentatives.");
 						 String request=Receive.readLine();
 						 SendMessage("J2/ Reponse: "+request+". A votre tour !", 0);
 						 Send.println("Attendez votre tour");
