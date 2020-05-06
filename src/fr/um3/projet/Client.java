@@ -1,49 +1,36 @@
 package fr.um3.projet;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import javax.swing.JOptionPane;
+
 public class Client {
-
-	public static void main(String[] args) {
-		System.out.println("----Client----");
+	private static final int PORTserver=9991; 
+	private static final String IPserver="127.0.0.1";
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		Socket server=new Socket(IPserver,PORTserver);
 		
-		try {
-			InetAddress add= InetAddress.getLocalHost();
-			Socket Detect = new Socket("192.168.1.14",49874);
-			String id="Client:  "+add;
-			
-			BufferedReader Reception=new BufferedReader(
-					new InputStreamReader(Detect.getInputStream()));
-			System.out.println(Reception.readLine());
-			
-			PrintWriter Envoie=new PrintWriter(
-					new BufferedWriter(
-					new OutputStreamWriter(Detect.getOutputStream())),
-					true);
+		ServerConnection serveurC=new ServerConnection(server);
+		BufferedReader pressKeyboard= new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter Send=new PrintWriter(server.getOutputStream(),true);
+		new Thread(serveurC).start();
+	while(true) {
+		System.out.println(">> ");
+		String saisie=pressKeyboard.readLine();
 		
-			//PrintWriter Envoie=new PrintWriter(SocketClient.getOutputStream());
-			//Envoie.println(id);
-			//Envoie.println("Bonjours");
-			
-			//Envoie.flush();
-			
-			Detect.close();
+		if(saisie.equals("stop")){break;}
 		
-		
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		
-		
-
+		Send.println(saisie);
 	}
-
+		server.close();
+		System.exit(0);
+		
+		
+		
+	}
 }
-

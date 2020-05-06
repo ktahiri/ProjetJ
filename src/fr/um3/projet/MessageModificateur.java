@@ -1,11 +1,12 @@
 package fr.um3.projet;
 
+
 import java.util.Random;
 import java.util.ArrayList;
 
-public class Arazi1 {
+public class MessageModificateur {
 	
-	public String modifier (String message, String but) {
+	public static String modifier (String message, String but) {
 
 		
 		if (message.contains(but)) {
@@ -36,11 +37,7 @@ public class Arazi1 {
 			
 			if (n<taille && !(l>=0)) { if (l>=0) { n=z; } }
 			n+=1;
-			/*
-			 * System.out.println(ind); System.out.println("n : " + n);
-			 * System.out.println("size = " + ind.size()); System.out.println("l = " + l);
-			 * System.out.println("tailles : " + taille);
-			 */
+			
 		}
 
 		for (int i = 0; i<taille ;i++) {
